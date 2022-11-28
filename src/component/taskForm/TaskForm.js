@@ -13,13 +13,13 @@ const TaskForm = () => {
                 validate={values => {
                     const errors = {};
                     if (!values.name) {
-                        errors.name = 'Required';
+                        errors.name = 'Please Enter Name';
                     }
                     if (!values.birth) {
-                        errors.birth = 'Required';
+                        errors.birth = 'Please Enter Birth Date';
                     }
                     if (!values.sex) {
-                        errors.sex = 'Required';
+                        errors.sex = 'Please Enter Sex';
                     }
                     return errors;
                 }}
@@ -54,7 +54,7 @@ const TaskForm = () => {
                                         onBlur={handleBlur}
                                         value={values.name}
                                     />
-                                    {errors.name && touched.name && errors.name}
+                                    <p className='text-danger'>{errors.name && touched.name && errors.name}</p>
                                 </div>
                             </div>
                             <div className='col-sm-6 row text-start'>
@@ -70,7 +70,7 @@ const TaskForm = () => {
                                         onBlur={handleBlur}
                                         value={values.birth}
                                     />
-                                    {errors.birth && touched.birth && errors.birth}
+                                    <p className='text-danger'>{errors.birth && touched.birth && errors.birth}</p>
                                 </div>
                             </div>
                             <div className='row col-sm-3'>
@@ -78,12 +78,12 @@ const TaskForm = () => {
                                 <label className='col-sm-2' htmlFor="sex">Sex<span className='text-danger'>*</span></label>
                                 <div className=' col-sm-10'>
                                     <Field className='form-select' placeholder='Enter Sex' id='sex' as="select" name="sex">
-                                        <option >Enter Sex</option>
+                                        <option value="" disabled selected>Enter Sex</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                         <option value="common">Common</option>
                                     </Field>
-                                    {errors.sex && touched.sex && errors.sex}
+                                    <p className='text-danger'>{errors.sex && touched.sex && errors.sex}</p>
                                 </div>
 
                             </div>
@@ -109,7 +109,7 @@ const TaskForm = () => {
                                 <label className='col-sm-2' htmlFor="">Govt Issued ID</label>
                                 <div className='col-sm-4'>
                                     <Field className='form-select' as="select" name="idType">
-                                        <option >Enter Card</option>
+                                        <option value="" disabled selected >Enter Card</option>
                                         <option value="aCard">Aadhaar Card</option>
                                         <option value="vCard">Voter ID Card</option>
                                         <option value="pCard">PAN Card</option>
@@ -135,7 +135,7 @@ const TaskForm = () => {
                                 <label className='col-sm-3' htmlFor="gardian">Gardian Details</label>
                                 <div className='col-sm-3'>
                                     <Field className='form-select' id='gardian' as="select" name="gardian">
-                                        <option >Enter Label</option>
+                                        <option value="" disabled selected >Enter Label</option>
                                         <option value="father">Father</option>
                                         <option value="mother">Mother</option>
                                         <option value="brother">Brother</option>
@@ -206,7 +206,7 @@ const TaskForm = () => {
                                 <label className='col-sm-2' htmlFor="state">State</label>
                                 <div className='col-sm-10'>
                                     <Field className='form-select' id='state' as="select" name="state">
-                                        <option >Enter State</option>
+                                        <option value="" disabled selected>Enter State</option>
                                         <option value="india">India</option>
                                         <option value="bangladesh">Bangladesh</option>
                                         <option value="usa">USA</option>
@@ -217,7 +217,7 @@ const TaskForm = () => {
                                 <label className='col-sm-2' htmlFor="city">City</label>
                                 <div className='col-sm-10'>
                                     <Field className='form-select' id='city' as="select" name="city">
-                                        <option>Enter City</option>
+                                        <option value="" disabled selected>Enter City</option>
                                         <option value="dellhi">Dellhi</option>
                                         <option value="dhaka">Dhaka</option>
                                         <option value="newyork">New Tork</option>
@@ -229,7 +229,7 @@ const TaskForm = () => {
                             <div className='row col-sm-4'>
                                 <label className='col-sm-2' htmlFor="country">Country</label>
                                 <div className='col-sm-10'>
-                                    <input className='form-control' name='country' list="country" />
+                                    <input className='form-control' name='country' placeholder='Enter Country' list="country" />
 
                                     <datalist id="country">
                                         <option value="India" />
@@ -280,7 +280,7 @@ const TaskForm = () => {
                                 <label className='col-sm-3' htmlFor="religion">Religion</label>
                                 <div className='col-sm-9'>
                                     <Field className='form-select' id='religion' as="select" name="religion">
-                                        <option>Enter Religion</option>
+                                        <option value="" disabled selected>Enter Religion</option>
                                         <option value="hindu">Hindu</option>
                                         <option value="muslim">Muslim</option>
                                         <option value="buddha">Buddha</option>
@@ -292,7 +292,7 @@ const TaskForm = () => {
                                 <label className='col-sm-3' htmlFor="merital">Merital Status</label>
                                 <div className='col-sm-9'>
                                     <Field className='form-select' id='merital' as="select" name="merital">
-                                        <option>Enter Merital Status</option>
+                                        <option value="" disabled selected>Enter Merital Status</option>
                                         <option value="married">Married</option>
                                         <option value="unmarried">Unmarried</option>
                                     </Field>
@@ -303,7 +303,7 @@ const TaskForm = () => {
                                 <label className='col-sm-3' htmlFor="blood">Blood Group</label>
                                 <div className='col-sm-9'>
                                     <Field className='form-select' id='blood' as="select" name="blood">
-                                        <option>Enter Blood Group</option>
+                                        <option value="" disabled selected>Enter Blood Group</option>
                                         <option value="oPositive">O+</option>
                                         <option value="aPositive">A+</option>
                                         <option value="bPositive">B+</option>
@@ -319,7 +319,7 @@ const TaskForm = () => {
                             <div className='row col-sm-4'>
                                 <label className='col-sm-3' htmlFor="nationality">Nationality</label>
                                 <div className='col-sm-9'>
-                                    <input name='nationality' list="nationality" />
+                                    <input name='nationality' placeholder='Nationality' list="nationality" />
 
                                     <datalist name='n' id="nationality">
                                         <option value="India" />
