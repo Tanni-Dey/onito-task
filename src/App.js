@@ -4,7 +4,7 @@ import TaskForm from './component/taskForm/TaskForm';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App m-5">
       <TaskForm />
     </div>
   );
