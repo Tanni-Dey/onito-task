@@ -10,7 +10,6 @@ const TaskForm = () => {
     const handleSearch = (e) => {
         e.preventDefault();
         const search = e.target.searchUser.value;
-        // setU([...users])
         if (search === '' || search === ' ') {
             setUsers([...allU])
         } else {
