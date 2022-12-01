@@ -10,7 +10,7 @@ const TaskForm = () => {
     const handleSearch = (e) => {
         e.preventDefault();
         const search = e.target.searchUser.value;
-        if (search === '' || search === ' ') {
+        if (search === '') {
             setUsers([...allU])
         } else {
             const newUser = allU.find(user => user.name === search);
