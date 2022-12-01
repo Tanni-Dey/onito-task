@@ -4,6 +4,22 @@ import { Formik, Field } from 'formik';
 
 const TaskForm = () => {
     const [users, setUsers] = useState([])
+    const [allU, setAllU] = useState([])
+
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const search = e.target.searchUser.value;
+        if (search === '') {
+            setUsers([...allU])
+        } else {
+            const newUser = allU.find(user => user.name === search);
+            const allUser = [];
+            const newU = [...allUser, newUser];
+            setUsers(newU)
+        }
+
+    }
 
     return (
         <div>
@@ -26,6 +42,7 @@ const TaskForm = () => {
                 onSubmit={(values, { setSubmitting }) => {
                     const newUser = [...users, values]
                     setUsers(newUser)
+                    setAllU(newUser)
                 }}
             >
                 {({
@@ -342,6 +359,12 @@ const TaskForm = () => {
                     </form>
                 )}
             </Formik>
+
+            <form action="" onSubmit={handleSearch}>
+                <input type="text" name='searchUser' />
+                <input type="submit" value="search" />
+            </form>
+
             <div className='mt-5'>
                 {
                     users.length === 0 ? '' : <table class="table table-primary table-striped">
